@@ -17,7 +17,12 @@ USplineMetadata* UMySplineComponent::GetSplinePointsMetadata()
 
 const USplineMetadata* UMySplineComponent::GetSplinePointsMetadata() const
 {
-	return GetSplinePointsMetadata();
+	if (AMySplineActor* Actor = Cast<AMySplineActor>(GetOwner()))
+	{
+		return Actor->GetSplineMetadata();
+	}
+
+	return nullptr;
 }
 
 void UMySplineComponent::FixupPoints()

@@ -22,3 +22,16 @@ UMySplineMetadata* AMySplineActor::GetSplineMetadata() const
 	return MySplineMetadata; 
 }
 
+float AMySplineActor::GetTestFloatAtSplinePoint(int32 PointIndex)
+{
+	if (ensure(MySplineMetadata))
+	{
+		if (ensure(MySplineMetadata->PointParams.IsValidIndex(PointIndex)))
+		{
+			return MySplineMetadata->PointParams[PointIndex].TestFloat;
+		}
+	}
+
+	return 0.0f;
+}
+

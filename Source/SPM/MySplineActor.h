@@ -19,6 +19,9 @@ public:
 	AMySplineActor();
 	UMySplineMetadata* GetSplineMetadata() const;
 
+	UFUNCTION(BlueprintCallable)
+	float GetTestFloatAtSplinePoint(int32 PointIndex);
+
 private:
 	UPROPERTY(Instanced, Export)
 	UMySplineMetadata* MySplineMetadata = nullptr;
